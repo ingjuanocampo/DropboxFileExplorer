@@ -1,2 +1,2 @@
-include ':app', ':presentation'
+include ':app', ':presentation', ':domain', ':data', ':cache', ':file_explorer_sdk'
 rootProject.name='DropboxExplorer'
