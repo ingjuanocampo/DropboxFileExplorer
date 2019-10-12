@@ -14,6 +14,7 @@ class MapperImpl: Mapper {
         var fileBoxRepo: FileBoxType = FolderBox
         var pathLower = ""
         var id = ""
+        var rev = ""
         if (entry is FileMetadata) {
             val mime = MimeTypeMap.getSingleton()
             ext = entry.getName().substring(entry.getName().indexOf(".") + 1)
@@ -26,11 +27,12 @@ class MapperImpl: Mapper {
                 pathLower = entry.pathLower
             }
             id = entry.id
+            rev = entry.rev
         } else if (entry is FolderMetadata) {
             fileBoxRepo = FolderBox
             id = entry.id
             pathLower = entry.pathLower
         }
-        return FileBoxRepo(name = entry.name, type = fileBoxRepo, pathLower = pathLower, id = id)
+        return FileBoxRepo(name = entry.name, type = fileBoxRepo, pathLower = pathLower, id = id, rev = rev)
     }
 }

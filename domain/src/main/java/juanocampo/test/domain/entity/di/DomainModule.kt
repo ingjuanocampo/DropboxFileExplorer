@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import juanocampo.test.domain.entity.repository.FileRepository
 import juanocampo.test.domain.entity.repository.UserRepository
+import juanocampo.test.domain.entity.usecase.DownLoadFileUseCase
 import juanocampo.test.domain.entity.usecase.LoadFileListUseCase
 import juanocampo.test.domain.entity.usecase.LoadUserInformationUseCase
 import juanocampo.test.domain.entity.usecase.LoginUseCase
@@ -19,4 +20,7 @@ class DomainModule {
 
     @Provides
     fun providesLoadFileListUseCase(fileRepository: FileRepository) = LoadFileListUseCase(fileRepository)
+
+    @Provides
+    fun providesDownLoadFileUseCase(fileRepository: FileRepository) = DownLoadFileUseCase(fileRepository)
 }

@@ -2,25 +2,48 @@ package juanocampo.test.data.mapper
 
 import juanocampo.test.data.entity.*
 import juanocampo.test.domain.entity.entity.*
+import java.io.File
 
-class RepositoryMapperImpl: RepositoryMapper {
+class RepositoryMapperImpl : RepositoryMapper {
 
-    override fun map(list: List<FileBoxRepo>): List<FileD>? {
-        return list.map {
-            val type = when (it.type) {
-                is FolderBox -> Folder
-                is DocumentBox -> Document
-                is ImageBox -> Image
-            }
-            FileD(fileType = type, imagePath = it.pathLower, id = it.id, name = it.name)
+    override fun map(file: FileBoxRepo): FileD {
+
+        val type = when (file.type) {
+            is FolderBox -> Folder
+            is DocumentBox -> Document
+            is ImageBox -> Image
         }
+        return FileD(
+            fileType = type,
+            imagePath = file.pathLower,
+            id = file.id,
+            name = file.name,
+            rev = file.rev
+        )
+
     }
 
+    override fun map(result: Pair<String, File>): FileIntent? =
+        FileIntent(result.first, result.second)
+
+
     override fun map(user: User?): UserRepo? {
-        return if (user != null) UserRepo(user.email, user.name, user.userName, user.uiId, user.token) else null
+        return if (user != null) UserRepo(
+            user.email,
+            user.name,
+            user.userName,
+            user.uiId,
+            user.token
+        ) else null
     }
 
     override fun map(userRepo: UserRepo?): User? {
-        return if (userRepo!= null) User(userRepo.email, userRepo.name, userRepo.userName, userRepo.uiId, userRepo.token) else null
+        return if (userRepo != null) User(
+            userRepo.email,
+            userRepo.name,
+            userRepo.userName,
+            userRepo.uiId,
+            userRepo.token
+        ) else null
     }
 }

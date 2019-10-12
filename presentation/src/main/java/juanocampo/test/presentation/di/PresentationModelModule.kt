@@ -3,6 +3,7 @@ package juanocampo.test.presentation.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import juanocampo.test.domain.entity.usecase.DownLoadFileUseCase
 import juanocampo.test.domain.entity.usecase.LoadFileListUseCase
 import juanocampo.test.domain.entity.usecase.LoadUserInformationUseCase
 import juanocampo.test.domain.entity.usecase.LoginUseCase
@@ -16,8 +17,8 @@ import juanocampo.test.presentation.util.PermissionHelper
 class PresentationModelModule {
 
     @Provides
-    fun providesFileExplorerModel(loadFileListUseCase: LoadFileListUseCase, permissionHelper: PermissionHelper): FileExplorerModel
-            = FileExplorerModelImpl(loadFileListUseCase, permissionHelper)
+    fun providesFileExplorerModel(loadFileListUseCase: LoadFileListUseCase, permissionHelper: PermissionHelper, downLoadFileUseCase: DownLoadFileUseCase): FileExplorerModel
+            = FileExplorerModelImpl(loadFileListUseCase, permissionHelper, downLoadFileUseCase)
 
     @Provides
     fun providesPermissionHelper(context: Context) = PermissionHelper(context)

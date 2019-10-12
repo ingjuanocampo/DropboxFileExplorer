@@ -22,4 +22,6 @@ interface FileExplorerView {
     fun setName(title: String)
 
     fun requestExternalAccess()
+
+    fun showDownloading()
 }

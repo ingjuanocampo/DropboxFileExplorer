@@ -41,6 +41,7 @@ class FileExplorerPresenter(private val context: Context, private val fileExplor
     fun downLoadFile(id: String = "") = launch {
         if (id.isEmpty()) return@launch
 
+        publishResults { view?.showDownloading() }
         requestToDownload = id
         when (val downloadStatus = fileExplorerModel.downloadFile(id)) {
             is DownloadSuccess -> {

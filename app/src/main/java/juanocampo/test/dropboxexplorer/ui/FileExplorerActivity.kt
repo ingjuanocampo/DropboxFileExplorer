@@ -92,6 +92,7 @@ class FileExplorerActivity: AppCompatActivity(), FileExplorerView {
     }
 
     override fun openExternalFile(intent: Intent) {
+        startActivity(intent)
     }
 
     override fun navigateToFolder(path: String) {
@@ -100,6 +101,10 @@ class FileExplorerActivity: AppCompatActivity(), FileExplorerView {
 
     override fun generalError() {
         Toast.makeText(this, "Something when wrong", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showDownloading() {
+        Toast.makeText(this, "Downloading...", Toast.LENGTH_SHORT).show()
     }
 
     override fun requestExternalAccess() {

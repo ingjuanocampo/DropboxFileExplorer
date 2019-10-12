@@ -11,6 +11,7 @@ import juanocampo.test.data.sources.UserLocalDataSource
 import juanocampo.test.data.sources.UserRemoteDataSource
 import juanocampo.test.domain.entity.repository.FileRepository
 import juanocampo.test.domain.entity.repository.UserRepository
+import javax.inject.Singleton
 
 @Module
 class DataModule {
@@ -24,6 +25,7 @@ class DataModule {
     @Provides
     fun providesRepositoryMapper(): RepositoryMapper = RepositoryMapperImpl()
 
+    @Singleton
     @Provides
     fun providesFileRepository(localDataSource: FileRemoteDataSource,
                                mapper: RepositoryMapper): FileRepository = FileRepositoryImpl(localDataSource, mapper)
