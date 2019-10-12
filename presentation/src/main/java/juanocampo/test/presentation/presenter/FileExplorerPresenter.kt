@@ -9,8 +9,10 @@ import juanocampo.test.presentation.mapper.UIMapper
 import juanocampo.test.presentation.view.FileExplorerView
 import kotlinx.coroutines.launch
 
-class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, private val fileMapper: UIMapper):
+class FileExplorerPresenter(private val context: Context, private val fileExplorerModel: FileExplorerModel, private val fileMapper: UIMapper):
     BasePresenter<FileExplorerView>() {
+
+    private var requestToDownload: String? = null
 
     fun loadList(path: String) = launch {
         publishResults { view?.showLoader() }
@@ -36,7 +38,10 @@ class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, pr
         publishResults { view?.setName(title) }
     }
 
-    fun goToFile(id: String, context: Context) = launch {
+    fun downLoadFile(id: String = "") = launch {
+        if (id.isEmpty()) return@launch
+
+        requestToDownload = id
         when (val downloadStatus = fileExplorerModel.downloadFile(id)) {
             is DownloadSuccess -> {
                 val intent = fileMapper.mapFileIntent(downloadStatus.fileIntent, context)
@@ -44,6 +49,9 @@ class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, pr
             }
             is DownloadError -> {
                 publishResults { view?.generalError() }
+            }
+            is RequestPermission -> {
+                publishResults { view?.requestExternalAccess() }
             }
         }
     }
@@ -59,9 +67,9 @@ class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, pr
     }
 
     fun processSelectedItem(file: FileViewType) {
-
         when (file.fileViewType) {
             is Folder -> view?.navigateToFolder(file.path)
+            else -> downLoadFile(file.path)
         }
 
     }

@@ -20,4 +20,6 @@ interface FileExplorerView {
     fun hideLoader()
 
     fun setName(title: String)
+
+    fun requestExternalAccess()
 }

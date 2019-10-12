@@ -1,5 +1,6 @@
 package juanocampo.test.presentation.di
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -19,8 +20,8 @@ class PresentationModule {
 
     @Provides
     @ActivityScope
-    fun providesFileExplorerPresenter(fileExplorerModel: FileExplorerModel, uiMapper: UIMapper) =
-        FileExplorerPresenter(fileExplorerModel, uiMapper)
+    fun providesFileExplorerPresenter(context: Context, fileExplorerModel: FileExplorerModel, uiMapper: UIMapper) =
+        FileExplorerPresenter(context, fileExplorerModel, uiMapper)
 
     @Provides
     @Reusable

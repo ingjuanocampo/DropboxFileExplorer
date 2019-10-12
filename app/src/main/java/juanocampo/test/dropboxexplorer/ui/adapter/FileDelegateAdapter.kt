@@ -33,9 +33,9 @@ class FileDelegateAdapter(private val onFileSelected: (FileViewType) -> Unit) : 
 
                     }
                 }
-            } else {
-                Picasso.get().load(file.type).into(filePreview)
             }
+
+            Picasso.get().load(file.type).into(filePreview)
 
             itemView.setOnClickListener{ onFileSelected(file) }
 

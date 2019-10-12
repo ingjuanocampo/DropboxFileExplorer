@@ -1,11 +1,11 @@
 package juanocampo.test.presentation.model
 
-import juanocampo.test.domain.entity.status.DownloadFileStatus
-import juanocampo.test.domain.entity.status.LoadFileDetailsStatus
-import juanocampo.test.domain.entity.status.LoadFileListStatus
+import juanocampo.test.domain.entity.status.*
 import juanocampo.test.domain.entity.usecase.LoadFileListUseCase
+import juanocampo.test.presentation.util.PermissionHelper
 
-class FileExplorerModelImpl(private val loadFileListUseCase: LoadFileListUseCase): FileExplorerModel {
+class FileExplorerModelImpl(private val loadFileListUseCase: LoadFileListUseCase,
+                            private val permission: PermissionHelper): FileExplorerModel {
 
     override suspend fun loadFileList(path: String): LoadFileListStatus {
         return loadFileListUseCase(path)
@@ -16,6 +16,11 @@ class FileExplorerModelImpl(private val loadFileListUseCase: LoadFileListUseCase
     }
 
     override suspend fun downloadFile(id: String): DownloadFileStatus {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return if (permission.hasWriteExternalStoragePermission()) {
+            DownloadError
+        } else {
+            RequestPermission
+
+        }
     }
 }
