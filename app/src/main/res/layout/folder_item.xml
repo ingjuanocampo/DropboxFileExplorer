@@ -11,6 +11,7 @@
         android:id="@+id/filePreview"/>
 
     <TextView
+        android:maxLength="20"
         android:layout_weight="80"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_gravity="center"
