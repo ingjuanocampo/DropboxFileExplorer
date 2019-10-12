@@ -14,6 +14,11 @@ class LoginPresenter(private val loginModel: LoginModel) : BasePresenter<LoginVi
         if (isLoginSent) publishResults { view?.loginInProgress() }
     }
 
+    override fun bind(view: LoginView) {
+        super.bind(view)
+        processLogin()
+    }
+
     fun processLogin() = launch {
         when (val status = loginModel.processLogin()) {
             is UserAuthenticated -> publishResults { view?.loginSuccess("welcome ¡¡ ${status.user.name}") }

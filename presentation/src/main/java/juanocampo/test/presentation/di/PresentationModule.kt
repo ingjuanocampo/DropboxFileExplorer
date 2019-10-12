@@ -10,15 +10,15 @@ import juanocampo.test.presentation.presenter.FileExplorerPresenter
 import juanocampo.test.presentation.presenter.LoginPresenter
 import juanocampo.test.presentation.presenter.mapper.UIMapperImpl
 
-@Module
+@Module(includes = [PresentationModelModule::class])
 class PresentationModule {
 
     @Provides
-    @LoginScope
+    @ActivityScope
     fun providesLoginPresenter(loginModel: LoginModel) = LoginPresenter(loginModel)
 
     @Provides
-    @FileExplorerScope
+    @ActivityScope
     fun providesFileExplorerPresenter(fileExplorerModel: FileExplorerModel, uiMapper: UIMapper) =
         FileExplorerPresenter(fileExplorerModel, uiMapper)
 

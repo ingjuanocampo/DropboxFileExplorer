@@ -18,6 +18,10 @@ class RemoteDataSourceImp(private val context: Context) : RemoteDataSource {
 
     override fun authenticate(): UserRepo? {
         val accessToken = Auth.getOAuth2Token()
+
+        if (accessToken.isNullOrEmpty()) {
+            return null
+        }
         val uid = Auth.getUid()
 
         DropboxClientFactory.init(accessToken)

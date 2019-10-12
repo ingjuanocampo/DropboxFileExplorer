@@ -15,11 +15,11 @@ open class BasePresenter<T>: CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = presenterJob + Dispatchers.IO
 
-    fun bind(view: T) {
+    open fun bind(view: T) {
         this.view = view
     }
 
-    fun unBind() {
+    open fun unBind() {
         presenterJob.cancel()
     }
 
@@ -28,5 +28,4 @@ open class BasePresenter<T>: CoroutineScope {
             function.invoke()
         }
     }
-
 }

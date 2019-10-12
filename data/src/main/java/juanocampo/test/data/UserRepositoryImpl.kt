@@ -15,7 +15,7 @@ class UserRepositoryImpl(private val localDataSource: LocalDataSource,
     }
 
     override fun loadUser(): User? {
-        return if (localDataSource.isUserLogged()) {
+        return if (!localDataSource.isUserLogged()) {
             val user = remoteDataSource.authenticate()
             if (user != null) {
                 localDataSource.saveUser(user)
