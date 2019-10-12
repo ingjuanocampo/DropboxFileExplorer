@@ -1,5 +1,6 @@
 package juanocampo.test.dropboxexplorer.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -39,7 +40,9 @@ class LoginActivity: AppCompatActivity(), LoginView {
         Toast.makeText(this, welcomeMsn, Toast.LENGTH_LONG).show()
         progressBar.visibility = View.GONE
         loginButton.visibility = View.GONE
-        startActivity(FileExplorerActivity.Factory.build(this))
+        val intent = FileExplorerActivity.Factory.build(this)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     override fun loginInProgress() {

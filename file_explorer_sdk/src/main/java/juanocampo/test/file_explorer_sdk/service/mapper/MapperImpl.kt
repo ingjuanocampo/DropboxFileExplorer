@@ -9,26 +9,28 @@ import juanocampo.test.file_explorer_sdk.Mapper
 
 class MapperImpl: Mapper {
 
-    override fun map(it: Metadata): FileBoxRepo {
+    override fun map(entry: Metadata): FileBoxRepo {
         var ext: String? = null
         var fileBoxRepo: FileBoxType = FolderBox
-        var imagePath = ""
+        var pathLower = ""
         var id = ""
-        if (it is FileMetadata) {
+        if (entry is FileMetadata) {
             val mime = MimeTypeMap.getSingleton()
-            ext = it.getName().substring(it.getName().indexOf(".") + 1)
+            ext = entry.getName().substring(entry.getName().indexOf(".") + 1)
             var type = mime.getMimeTypeFromExtension(ext)
             if (type != null && type.startsWith("image/")) run {
                 fileBoxRepo = ImageBox
-                imagePath = it.pathLower
+                pathLower = entry.pathLower
             } else {
                 fileBoxRepo = DocumentBox
+                pathLower = entry.pathLower
             }
-            id = it.id
-        } else if (it is FolderMetadata) {
+            id = entry.id
+        } else if (entry is FolderMetadata) {
             fileBoxRepo = FolderBox
-            id = it.id
+            id = entry.id
+            pathLower = entry.pathLower
         }
-        return FileBoxRepo(name = it.name, type = fileBoxRepo, imagePath = imagePath, id = id)
+        return FileBoxRepo(name = entry.name, type = fileBoxRepo, pathLower = pathLower, id = id)
     }
 }

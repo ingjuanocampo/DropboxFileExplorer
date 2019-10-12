@@ -12,7 +12,7 @@ class RepositoryMapperImpl: RepositoryMapper {
                 is DocumentBox -> Document
                 is ImageBox -> Image
             }
-            FileD(fileType = type, imagePath = it.imagePath, id = it.id, name = it.name)
+            FileD(fileType = type, imagePath = it.pathLower, id = it.id, name = it.name)
         }
     }
 

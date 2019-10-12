@@ -16,7 +16,7 @@ fun FileD.toUIModel(): FileViewType {
     }
 
     return FileViewType(type = resourcePreview,
-        previewImageUrl = imagePath,
+        path = imagePath,
         id = this.id,
-        name = this.name)
+        name = this.name, fileViewType = this.fileType)
 }

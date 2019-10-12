@@ -1,7 +1,9 @@
 package juanocampo.test.presentation.presenter
 
 import android.content.Context
+import juanocampo.test.domain.entity.entity.Folder
 import juanocampo.test.domain.entity.status.*
+import juanocampo.test.presentation.entitiy.FileViewType
 import juanocampo.test.presentation.model.FileExplorerModel
 import juanocampo.test.presentation.mapper.UIMapper
 import juanocampo.test.presentation.view.FileExplorerView
@@ -12,7 +14,7 @@ class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, pr
 
     fun loadList(path: String) = launch {
         publishResults { view?.showLoader() }
-
+        setTitle(path)
         when(val status = fileExplorerModel.loadFileList(path)) {
             is ListSuccess -> {
                 val list = status.list
@@ -26,11 +28,19 @@ class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, pr
 
     }
 
+    private suspend fun setTitle(path: String) {
+        var title = "Home"
+        if (path.isNotEmpty()) {
+            title = path
+        }
+        publishResults { view?.setName(title) }
+    }
+
     fun goToFile(id: String, context: Context) = launch {
         when (val downloadStatus = fileExplorerModel.downloadFile(id)) {
             is DownloadSuccess -> {
                 val intent = fileMapper.mapFileIntent(downloadStatus.fileIntent, context)
-                publishResults { view?.navigateToFile(intent) }
+                publishResults { view?.openExternalFile(intent) }
             }
             is DownloadError -> {
                 publishResults { view?.generalError() }
@@ -46,6 +56,14 @@ class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, pr
             }
             is DetailError -> publishResults { view?.generalError() }
         }
+    }
+
+    fun processSelectedItem(file: FileViewType) {
+
+        when (file.fileViewType) {
+            is Folder -> view?.navigateToFolder(file.path)
+        }
+
     }
 
 

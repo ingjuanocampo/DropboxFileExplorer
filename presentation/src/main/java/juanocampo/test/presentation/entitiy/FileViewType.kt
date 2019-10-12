@@ -1,13 +1,15 @@
 package juanocampo.test.presentation.entitiy
 
-import androidx.annotation.IntegerRes
+import androidx.annotation.DrawableRes
+import juanocampo.test.domain.entity.entity.FileType
 
-data class FileViewType(@IntegerRes val type: Int,
+data class FileViewType(@DrawableRes val type: Int,
+                        val fileViewType: FileType,
                         val name: String,
                         val id: String,
-                        val previewImageUrl: String): RecyclerViewType {
+                        val path: String): RecyclerViewType {
 
-    override fun getDelegateId() = id.toInt()
+    override fun getDelegateId() = id.hashCode()
 
     override fun getViewType() = 1
 

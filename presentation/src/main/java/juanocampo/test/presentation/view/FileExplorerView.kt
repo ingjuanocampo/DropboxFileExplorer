@@ -9,11 +9,15 @@ interface FileExplorerView {
 
     fun showFileDetails(file: FileViewType)
 
-    fun navigateToFile(intent: Intent)
+    fun openExternalFile(intent: Intent)
 
-    fun navigateToFolder(intent: Intent)
+    fun navigateToFolder(path: String)
 
     fun generalError()
+
     fun showLoader()
+
     fun hideLoader()
+
+    fun setName(title: String)
 }
