@@ -10,13 +10,16 @@ import kotlinx.coroutines.launch
 class FileExplorerPresenter(private val fileExplorerModel: FileExplorerModel, private val fileMapper: UIMapper):
     BasePresenter<FileExplorerView>() {
 
-    fun loadList() = launch {
+    fun loadList(path: String) = launch {
+        publishResults { view?.showLoader() }
 
-        when(val status = fileExplorerModel.loadFileList()) {
+        when(val status = fileExplorerModel.loadFileList(path)) {
             is ListSuccess -> {
                 val list = status.list
                 val uiElements = list.map { fileMapper.mapToUIFile(it) }
-                publishResults { view?.loadFiles(uiElements) }
+                publishResults {
+                    view?.hideLoader()
+                    view?.loadFiles(uiElements) }
             }
             is ListError -> publishResults { view?.generalError() }
         }

@@ -14,4 +14,6 @@ interface FileExplorerView {
     fun navigateToFolder(intent: Intent)
 
     fun generalError()
+    fun showLoader()
+    fun hideLoader()
 }

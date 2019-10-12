@@ -1,9 +1,9 @@
 package juanocampo.test.cache
 
 import juanocampo.test.data.entity.UserRepo
-import juanocampo.test.data.sources.LocalDataSource
+import juanocampo.test.data.sources.UserLocalDataSource
 
-class LocalDataSourceImpl: LocalDataSource {
+class UserLocalDataSourceImpl: UserLocalDataSource {
 
     private var userRepo: UserRepo? = null
 

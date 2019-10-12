@@ -16,11 +16,7 @@ import java.io.IOException;
 
 import okio.Okio;
 
-/**
- * Example Picasso request handler that gets the thumbnail url for a dropbox path
- * Only handles urls like dropbox://dropbox/[path_to_file]
- * See {@link FilesAdapter} for usage
- */
+
 public class FileThumbnailRequestHandler extends RequestHandler {
 
     private static final String SCHEME =  "dropbox";

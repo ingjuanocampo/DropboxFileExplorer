@@ -13,7 +13,7 @@
             <intent-filter>
 
                 <!-- Change this to be db- followed by your app key -->
-                <data android:scheme="db-kf4corj1h9rgt0d" />
+                <data android:scheme="db-3x84iqvt5klbjga" />
 
                 <action android:name="android.intent.action.VIEW" />
 

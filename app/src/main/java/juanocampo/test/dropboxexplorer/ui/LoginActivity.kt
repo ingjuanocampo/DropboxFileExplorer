@@ -39,6 +39,7 @@ class LoginActivity: AppCompatActivity(), LoginView {
         Toast.makeText(this, welcomeMsn, Toast.LENGTH_LONG).show()
         progressBar.visibility = View.GONE
         loginButton.visibility = View.GONE
+        startActivity(FileExplorerActivity.Factory.build(this))
     }
 
     override fun loginInProgress() {

@@ -6,7 +6,7 @@ import juanocampo.test.domain.entity.status.LoadFileListStatus
 
 interface FileExplorerModel {
 
-    suspend fun loadFileList(): LoadFileListStatus
+    suspend fun loadFileList(path: String): LoadFileListStatus
 
     suspend fun lookFileDetailsById(id: String): LoadFileDetailsStatus
 

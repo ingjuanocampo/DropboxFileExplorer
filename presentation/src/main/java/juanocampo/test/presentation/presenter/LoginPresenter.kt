@@ -11,7 +11,7 @@ class LoginPresenter(private val loginModel: LoginModel) : BasePresenter<LoginVi
 
     fun attemptLogin() = launch {
         val isLoginSent = loginModel.doLogin()
-        if (isLoginSent) publishResults { view?.loginInProgress() }
+        if (isLoginSent) publishResults { view?.loginInProgress() } else { publishResults { view?.generalError() }}
     }
 
     override fun bind(view: LoginView) {
@@ -19,7 +19,7 @@ class LoginPresenter(private val loginModel: LoginModel) : BasePresenter<LoginVi
         processLogin()
     }
 
-    fun processLogin() = launch {
+    private fun processLogin() = launch {
         when (val status = loginModel.processLogin()) {
             is UserAuthenticated -> publishResults { view?.loginSuccess("welcome ¡¡ ${status.user.name}") }
             is UserNotLogged -> publishResults { view?.notLoggedUser() }

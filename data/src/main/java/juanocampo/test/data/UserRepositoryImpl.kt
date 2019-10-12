@@ -1,13 +1,13 @@
 package juanocampo.test.data
 
 import juanocampo.test.data.mapper.RepositoryMapper
-import juanocampo.test.data.sources.LocalDataSource
-import juanocampo.test.data.sources.RemoteDataSource
+import juanocampo.test.data.sources.UserLocalDataSource
+import juanocampo.test.data.sources.UserRemoteDataSource
 import juanocampo.test.domain.entity.entity.User
 import juanocampo.test.domain.entity.repository.UserRepository
 
-class UserRepositoryImpl(private val localDataSource: LocalDataSource,
-                         private val remoteDataSource: RemoteDataSource,
+class UserRepositoryImpl(private val localDataSource: UserLocalDataSource,
+                         private val remoteDataSource: UserRemoteDataSource,
                          private val mapper: RepositoryMapper): UserRepository {
 
     override fun login() {

@@ -3,7 +3,7 @@ package juanocampo.test.presentation.presenter.mapper
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.FileProvider
-import juanocampo.test.domain.entity.entity.FileDropbox
+import juanocampo.test.domain.entity.entity.FileD
 import juanocampo.test.domain.entity.entity.FileIntent
 import juanocampo.test.presentation.BuildConfig
 import juanocampo.test.presentation.entitiy.FileViewType
@@ -22,5 +22,5 @@ class UIMapperImpl: UIMapper {
     }
 
 
-    override fun mapToUIFile(file: FileDropbox): FileViewType = file.toUIModel()
+    override fun mapToUIFile(file: FileD): FileViewType = file.toUIModel()
 }

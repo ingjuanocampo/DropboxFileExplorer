@@ -2,10 +2,10 @@ package juanocampo.test.presentation.entitiy
 
 import androidx.annotation.IntegerRes
 
-data class FileViewType(@IntegerRes private val type: Int,
-                        private val name: String,
-                        private val id: String,
-                        private val previewImageUrl: String): RecyclerViewType {
+data class FileViewType(@IntegerRes val type: Int,
+                        val name: String,
+                        val id: String,
+                        val previewImageUrl: String): RecyclerViewType {
 
     override fun getDelegateId() = id.toInt()
 

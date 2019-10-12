@@ -1,13 +1,13 @@
 package juanocampo.test.presentation.ext
 
 import juanocampo.test.domain.entity.entity.Document
-import juanocampo.test.domain.entity.entity.FileDropbox
+import juanocampo.test.domain.entity.entity.FileD
 import juanocampo.test.domain.entity.entity.Folder
 import juanocampo.test.domain.entity.entity.Image
 import juanocampo.test.presentation.R
 import juanocampo.test.presentation.entitiy.FileViewType
 
-fun FileDropbox.toUIModel(): FileViewType {
+fun FileD.toUIModel(): FileViewType {
 
     val resourcePreview = when (this.fileType) {
         is Folder -> R.drawable.ic_folder_blue_36dp
