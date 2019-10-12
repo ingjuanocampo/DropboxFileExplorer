@@ -12,33 +12,45 @@ import juanocampo.test.dropboxexplorer.R
 import juanocampo.test.dropboxexplorer.delegate.DelegateAdapter
 import juanocampo.test.presentation.entitiy.FileViewType
 
-class FileDelegateAdapter(private val onFileSelected: (FileViewType) -> Unit) : DelegateAdapter<FileDelegateAdapter.ViewHolder, FileViewType> {
-    override fun onCreateViewHolder(parent: ViewGroup): ViewHolder = ViewHolder(parent, onFileSelected)
+class FileDelegateAdapter(
+    private val onFileSelected: (FileViewType) -> Unit,
+    private val onDetailSelected: (FileViewType) -> Unit
+) : DelegateAdapter<FileDelegateAdapter.ViewHolder, FileViewType> {
+    override fun onCreateViewHolder(parent: ViewGroup): ViewHolder =
+        ViewHolder(parent, onFileSelected, onDetailSelected)
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, viewType: FileViewType) = viewHolder.bind(viewType)
+    override fun onBindViewHolder(viewHolder: ViewHolder, viewType: FileViewType) =
+        viewHolder.bind(viewType)
 
     class ViewHolder(
         viewGroup: ViewGroup,
-        private val onFileSelected: (FileViewType) -> Unit
-    ):
-        RecyclerView.ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.folder_item, viewGroup, false)) {
+        private val onFileSelected: (FileViewType) -> Unit,
+        private val onDetailSelected: (FileViewType) -> Unit
+    ) :
+        RecyclerView.ViewHolder(
+            LayoutInflater.from(viewGroup.context).inflate(
+                R.layout.folder_item,
+                viewGroup,
+                false
+            )
+        ) {
 
         private val filePreview: ImageView = itemView.findViewById(R.id.filePreview)
         private val name: TextView = itemView.findViewById(R.id.fileDescription)
+        private val detail: ImageView = itemView.findViewById(R.id.detail)
 
         fun bind(file: FileViewType) {
             if (file.fileViewType is Image) {
-                loadImage{ uri ->
+                loadImage { uri ->
                     if (uri is Uri) {
 
                     }
                 }
             }
-
             Picasso.get().load(file.type).into(filePreview)
-
-            itemView.setOnClickListener{ onFileSelected(file) }
-
+            filePreview.setOnClickListener { onFileSelected(file) }
+            name.setOnClickListener { onFileSelected(file) }
+            detail.setOnClickListener { onDetailSelected(file) }
             name.text = file.name
         }
 

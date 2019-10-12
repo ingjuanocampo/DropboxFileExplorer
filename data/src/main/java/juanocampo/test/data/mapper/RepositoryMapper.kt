@@ -13,7 +13,7 @@ interface RepositoryMapper {
 
     fun map(userRepo: UserRepo?): User?
 
-    fun map(list: FileBoxRepo): FileD
+    fun map(file: FileBoxRepo): FileD
 
     fun map(result: Pair<String, File>): FileIntent?
 

@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class FileExplorerPresenter(private val context: Context, private val fileExplorerModel: FileExplorerModel, private val fileMapper: UIMapper):
     BasePresenter<FileExplorerView>() {
 
+    private var downLoadStatus: DownloadFileStatus? = null
     private var requestToDownload: String? = null
 
     fun loadList(path: String) = launch {
@@ -39,13 +40,15 @@ class FileExplorerPresenter(private val context: Context, private val fileExplor
     }
 
     fun downLoadFile(id: String = "") = launch {
-        if (id.isEmpty()) return@launch
+        if (id.isEmpty() || downLoadStatus is DownloadInProgress) return@launch
 
+        downLoadStatus = DownloadInProgress
         publishResults { view?.showDownloading() }
         requestToDownload = id
-        when (val downloadStatus = fileExplorerModel.downloadFile(id)) {
+        downLoadStatus = fileExplorerModel.downloadFile(id)
+        when (downLoadStatus) {
             is DownloadSuccess -> {
-                val intent = fileMapper.mapFileIntent(downloadStatus.fileIntent, context)
+                val intent = fileMapper.mapFileIntent((downLoadStatus as DownloadSuccess).fileIntent, context)
                 publishResults { view?.openExternalFile(intent) }
             }
             is DownloadError -> {
@@ -54,16 +57,6 @@ class FileExplorerPresenter(private val context: Context, private val fileExplor
             is RequestPermission -> {
                 publishResults { view?.requestExternalAccess() }
             }
-        }
-    }
-
-    fun seeFileDetails(id: String) = launch {
-        when(val loadFileStatus = fileExplorerModel.lookFileDetailsById(id)) {
-            is DetailSuccess -> {
-                val fileViewType = fileMapper.mapToUIFile(loadFileStatus.file)
-                publishResults { view?.showFileDetails(fileViewType) }
-            }
-            is DetailError -> publishResults { view?.generalError() }
         }
     }
 

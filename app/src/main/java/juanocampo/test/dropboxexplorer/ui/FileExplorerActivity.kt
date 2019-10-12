@@ -2,11 +2,9 @@ package juanocampo.test.dropboxexplorer.ui
 
 import android.Manifest
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.NonNull
@@ -25,7 +23,7 @@ import juanocampo.test.presentation.view.FileExplorerView
 import kotlinx.android.synthetic.main.file_list_activity.*
 import javax.inject.Inject
 
-class FileExplorerActivity: AppCompatActivity(), FileExplorerView {
+class FileExplorerActivity : AppCompatActivity(), FileExplorerView {
 
     object Factory {
         const val EXTRA_PATH = "path"
@@ -42,9 +40,7 @@ class FileExplorerActivity: AppCompatActivity(), FileExplorerView {
 
     private lateinit var path: String
 
-    private val adapter = FileAdapter {
-        onFolderSelected(it)
-    }
+    private val adapter = FileAdapter({ onFolderSelected(it) }, { onDetailSelected(it) })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -69,6 +65,27 @@ class FileExplorerActivity: AppCompatActivity(), FileExplorerView {
 
     private fun onFolderSelected(file: FileViewType) {
         presenter.processSelectedItem(file)
+    }
+
+    private fun onDetailSelected(it: FileViewType) {
+        AlertDialog.Builder(this)
+            .setTitle("File Details")
+            .setMessage("Name: ${it.name} \n" +
+                    "Type: ${it.type} \n" +
+                    "id: ${it.id} \n" +
+                    "Path: ${it.path} \n")
+            .setPositiveButton(
+                "OK"
+            ) { _, _ ->
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    EXTERNAL_REQUEST_ACCESS
+                )
+            }
+            .create()
+            .show()
+
     }
 
     override fun setName(title: String) {
@@ -110,13 +127,15 @@ class FileExplorerActivity: AppCompatActivity(), FileExplorerView {
     override fun requestExternalAccess() {
         AlertDialog.Builder(this)
             .setMessage("This app requires storage access to download and upload files.")
-            .setPositiveButton("OK"
+            .setPositiveButton(
+                "OK"
             ) { _, _ ->
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                     EXTERNAL_REQUEST_ACCESS
-                )                }
+                )
+            }
             .setNegativeButton("Cancel", null)
             .create()
             .show()
