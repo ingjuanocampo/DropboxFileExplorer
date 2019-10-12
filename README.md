@@ -40,6 +40,11 @@ Dependency: Data
 Android Module that integrates the external SDK, in this case, the Dropbox SDK. This allows the app to do authentication and fetch of file from Dropbox
 Dependency: Data
 
+## Application 
+
+![Application](https://github.com/ingjuanocampo/DropboxFileExplorer/blob/master/application_dropbox.gif)
+
+
 ## Languages, libraries and tools used
 
 * [Kotlin](https://kotlinlang.org/)
