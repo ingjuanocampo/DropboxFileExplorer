@@ -12,7 +12,7 @@ class App: Application(), HasAndroidInjector {
 
 
     override fun androidInjector(): AndroidInjector<Any> {
-        return activityDispatchingAndroidInjector!!
+        return activityDispatchingAndroidInjector
     }
 
     @Inject
