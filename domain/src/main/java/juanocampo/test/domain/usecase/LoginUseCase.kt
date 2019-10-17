@@ -1,6 +1,6 @@
-package juanocampo.test.domain.entity.usecase
+package juanocampo.test.domain.usecase
 
-import juanocampo.test.domain.entity.repository.UserRepository
+import juanocampo.test.domain.repository.UserRepository
 import java.lang.Exception
 
 class LoginUseCase(private val userRepository: UserRepository) {

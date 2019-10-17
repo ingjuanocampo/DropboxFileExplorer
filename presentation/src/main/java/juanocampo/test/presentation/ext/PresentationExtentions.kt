@@ -1,9 +1,9 @@
 package juanocampo.test.presentation.ext
 
-import juanocampo.test.domain.entity.entity.Document
-import juanocampo.test.domain.entity.entity.FileD
-import juanocampo.test.domain.entity.entity.Folder
-import juanocampo.test.domain.entity.entity.Image
+import juanocampo.test.domain.entity.Document
+import juanocampo.test.domain.entity.FileD
+import juanocampo.test.domain.entity.Folder
+import juanocampo.test.domain.entity.Image
 import juanocampo.test.presentation.R
 import juanocampo.test.presentation.entitiy.FileViewType
 

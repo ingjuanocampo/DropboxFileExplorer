@@ -1,4 +1,4 @@
-package juanocampo.test.domain.entity.usecase
+package juanocampo.test.domain.usecase
 
 class LoadImageUseCase {
 

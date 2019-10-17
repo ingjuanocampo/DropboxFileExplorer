@@ -1,4 +1,4 @@
-package juanocampo.test.domain.entity.entity
+package juanocampo.test.domain.entity
 
 sealed class FileType
 object Folder: FileType()

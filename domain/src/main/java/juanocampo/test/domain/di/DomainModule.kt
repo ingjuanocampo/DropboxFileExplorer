@@ -1,13 +1,13 @@
-package juanocampo.test.domain.entity.di
+package juanocampo.test.domain.di
 
 import dagger.Module
 import dagger.Provides
-import juanocampo.test.domain.entity.repository.FileRepository
-import juanocampo.test.domain.entity.repository.UserRepository
-import juanocampo.test.domain.entity.usecase.DownLoadFileUseCase
-import juanocampo.test.domain.entity.usecase.LoadFileListUseCase
-import juanocampo.test.domain.entity.usecase.LoadUserInformationUseCase
-import juanocampo.test.domain.entity.usecase.LoginUseCase
+import juanocampo.test.domain.repository.FileRepository
+import juanocampo.test.domain.repository.UserRepository
+import juanocampo.test.domain.usecase.DownLoadFileUseCase
+import juanocampo.test.domain.usecase.LoadFileListUseCase
+import juanocampo.test.domain.usecase.LoadUserInformationUseCase
+import juanocampo.test.domain.usecase.LoginUseCase
 
 @Module
 class DomainModule {

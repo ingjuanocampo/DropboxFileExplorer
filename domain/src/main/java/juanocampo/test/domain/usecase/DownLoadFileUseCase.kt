@@ -1,10 +1,10 @@
-package juanocampo.test.domain.entity.usecase
+package juanocampo.test.domain.usecase
 
-import juanocampo.test.domain.entity.entity.FileIntent
-import juanocampo.test.domain.entity.repository.FileRepository
-import juanocampo.test.domain.entity.status.DownloadError
-import juanocampo.test.domain.entity.status.DownloadFileStatus
-import juanocampo.test.domain.entity.status.DownloadSuccess
+import juanocampo.test.domain.entity.FileIntent
+import juanocampo.test.domain.repository.FileRepository
+import juanocampo.test.domain.status.DownloadError
+import juanocampo.test.domain.status.DownloadFileStatus
+import juanocampo.test.domain.status.DownloadSuccess
 import java.lang.Exception
 
 class DownLoadFileUseCase(private val fileRepository: FileRepository) {

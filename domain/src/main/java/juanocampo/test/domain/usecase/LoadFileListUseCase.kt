@@ -1,9 +1,9 @@
-package juanocampo.test.domain.entity.usecase
+package juanocampo.test.domain.usecase
 
-import juanocampo.test.domain.entity.repository.FileRepository
-import juanocampo.test.domain.entity.status.ListError
-import juanocampo.test.domain.entity.status.ListSuccess
-import juanocampo.test.domain.entity.status.LoadFileListStatus
+import juanocampo.test.domain.repository.FileRepository
+import juanocampo.test.domain.status.ListError
+import juanocampo.test.domain.status.ListSuccess
+import juanocampo.test.domain.status.LoadFileListStatus
 
 class LoadFileListUseCase(private val repository: FileRepository) {
 

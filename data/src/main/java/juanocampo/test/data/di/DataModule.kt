@@ -9,8 +9,8 @@ import juanocampo.test.data.mapper.RepositoryMapperImpl
 import juanocampo.test.data.sources.FileRemoteDataSource
 import juanocampo.test.data.sources.UserLocalDataSource
 import juanocampo.test.data.sources.UserRemoteDataSource
-import juanocampo.test.domain.entity.repository.FileRepository
-import juanocampo.test.domain.entity.repository.UserRepository
+import juanocampo.test.domain.repository.FileRepository
+import juanocampo.test.domain.repository.UserRepository
 import javax.inject.Singleton
 
 @Module

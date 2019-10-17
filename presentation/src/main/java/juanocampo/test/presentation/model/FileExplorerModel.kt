@@ -1,7 +1,7 @@
 package juanocampo.test.presentation.model
 
-import juanocampo.test.domain.entity.status.DownloadFileStatus
-import juanocampo.test.domain.entity.status.LoadFileListStatus
+import juanocampo.test.domain.status.DownloadFileStatus
+import juanocampo.test.domain.status.LoadFileListStatus
 
 interface FileExplorerModel {
 

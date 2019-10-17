@@ -1,7 +1,7 @@
-package juanocampo.test.domain.entity.repository
+package juanocampo.test.domain.repository
 
-import juanocampo.test.domain.entity.entity.FileD
-import juanocampo.test.domain.entity.entity.FileIntent
+import juanocampo.test.domain.entity.FileD
+import juanocampo.test.domain.entity.FileIntent
 
 interface FileRepository {
 

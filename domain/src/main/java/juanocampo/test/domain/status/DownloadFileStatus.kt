@@ -1,6 +1,6 @@
-package juanocampo.test.domain.entity.status
+package juanocampo.test.domain.status
 
-import juanocampo.test.domain.entity.entity.FileIntent
+import juanocampo.test.domain.entity.FileIntent
 
 sealed class DownloadFileStatus
 class DownloadSuccess(val fileIntent: FileIntent): DownloadFileStatus()

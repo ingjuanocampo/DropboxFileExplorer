@@ -1,6 +1,6 @@
-package juanocampo.test.domain.entity.status
+package juanocampo.test.domain.status
 
-import juanocampo.test.domain.entity.entity.User
+import juanocampo.test.domain.entity.User
 
 sealed class UserStatus
 data class UserAuthenticated(val user: User): UserStatus()

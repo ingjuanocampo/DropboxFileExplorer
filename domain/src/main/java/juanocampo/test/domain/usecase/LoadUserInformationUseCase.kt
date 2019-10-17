@@ -1,10 +1,10 @@
-package juanocampo.test.domain.entity.usecase
+package juanocampo.test.domain.usecase
 
-import juanocampo.test.domain.entity.repository.UserRepository
-import juanocampo.test.domain.entity.status.UserError
-import juanocampo.test.domain.entity.status.UserNotLogged
-import juanocampo.test.domain.entity.status.UserStatus
-import juanocampo.test.domain.entity.status.UserAuthenticated
+import juanocampo.test.domain.repository.UserRepository
+import juanocampo.test.domain.status.UserError
+import juanocampo.test.domain.status.UserNotLogged
+import juanocampo.test.domain.status.UserStatus
+import juanocampo.test.domain.status.UserAuthenticated
 import java.lang.Exception
 
 class LoadUserInformationUseCase(private val userRepository: UserRepository) {

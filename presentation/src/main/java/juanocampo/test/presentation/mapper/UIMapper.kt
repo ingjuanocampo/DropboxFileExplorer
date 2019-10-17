@@ -2,8 +2,8 @@ package juanocampo.test.presentation.mapper
 
 import android.content.Context
 import android.content.Intent
-import juanocampo.test.domain.entity.entity.FileD
-import juanocampo.test.domain.entity.entity.FileIntent
+import juanocampo.test.domain.entity.FileD
+import juanocampo.test.domain.entity.FileIntent
 
 import juanocampo.test.presentation.entitiy.FileViewType
 

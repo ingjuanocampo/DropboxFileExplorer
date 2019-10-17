@@ -1,8 +1,8 @@
 package juanocampo.test.presentation.presenter
 
-import juanocampo.test.domain.entity.status.UserAuthenticated
-import juanocampo.test.domain.entity.status.UserError
-import juanocampo.test.domain.entity.status.UserNotLogged
+import juanocampo.test.domain.status.UserAuthenticated
+import juanocampo.test.domain.status.UserError
+import juanocampo.test.domain.status.UserNotLogged
 import juanocampo.test.presentation.model.LoginModel
 import juanocampo.test.presentation.view.LoginView
 import kotlinx.coroutines.launch

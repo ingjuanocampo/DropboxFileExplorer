@@ -1,8 +1,8 @@
 package juanocampo.test.presentation.model
 
-import juanocampo.test.domain.entity.status.*
-import juanocampo.test.domain.entity.usecase.DownLoadFileUseCase
-import juanocampo.test.domain.entity.usecase.LoadFileListUseCase
+import juanocampo.test.domain.status.*
+import juanocampo.test.domain.usecase.DownLoadFileUseCase
+import juanocampo.test.domain.usecase.LoadFileListUseCase
 import juanocampo.test.presentation.util.PermissionHelper
 
 class FileExplorerModelImpl(private val loadFileListUseCase: LoadFileListUseCase,

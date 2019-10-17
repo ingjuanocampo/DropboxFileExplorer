@@ -1,4 +1,4 @@
-package juanocampo.test.domain.entity.entity
+package juanocampo.test.domain.entity
 
 import java.io.File
 
