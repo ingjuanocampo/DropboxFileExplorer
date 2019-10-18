@@ -5,7 +5,7 @@ import juanocampo.test.data.sources.UserRemoteDataSource
 import juanocampo.test.file_explorer_sdk.service.AuthSdk
 import juanocampo.test.file_explorer_sdk.service.Client
 
-class UserRemoteDataSourceImp(private val authSdk: AuthSdk, private val client: Client) : UserRemoteDataSource {
+internal class UserRemoteDataSourceImp(private val authSdk: AuthSdk, private val client: Client) : UserRemoteDataSource {
 
     override fun login() {
         authSdk.authenticate()

@@ -4,7 +4,7 @@ import juanocampo.test.data.entity.*
 import juanocampo.test.domain.entity.*
 import java.io.File
 
-class RepositoryMapperImpl : RepositoryMapper {
+internal class RepositoryMapperImpl : RepositoryMapper {
 
     override fun map(file: FileBoxRepo): FileD {
 

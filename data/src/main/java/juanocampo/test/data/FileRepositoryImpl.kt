@@ -7,7 +7,7 @@ import juanocampo.test.domain.entity.FileD
 import juanocampo.test.domain.entity.FileIntent
 import juanocampo.test.domain.repository.FileRepository
 
-class FileRepositoryImpl(private val localDataSource: FileRemoteDataSource,
+internal class FileRepositoryImpl(private val localDataSource: FileRemoteDataSource,
                          private val mapper: RepositoryMapper): FileRepository {
 
 

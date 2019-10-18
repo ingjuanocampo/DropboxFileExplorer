@@ -12,7 +12,6 @@ import juanocampo.test.dropboxexplorer.ui.di.ActivityModule
 import juanocampo.test.file_explorer_sdk.di.RemoteModule
 import javax.inject.Singleton
 
-
 @Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
@@ -24,7 +23,6 @@ import javax.inject.Singleton
     LocalModule::class])
 interface AppComponent {
 
-
     @Component.Builder
     interface Builder {
         @BindsInstance
@@ -33,6 +31,10 @@ interface AppComponent {
         fun build(): AppComponent
     }
 
-    fun inject(app: App)
+    /**
+     * Do not expose any provides here from another layer.
+     *
+     */
 
+    fun inject(app: App)
 }

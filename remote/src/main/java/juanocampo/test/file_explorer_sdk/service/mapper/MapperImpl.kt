@@ -7,7 +7,7 @@ import com.dropbox.core.v2.files.Metadata
 import juanocampo.test.data.entity.*
 import juanocampo.test.file_explorer_sdk.Mapper
 
-class MapperImpl: Mapper {
+internal class MapperImpl: Mapper {
 
     override fun map(entry: Metadata): FileBoxRepo {
         var ext: String? = null

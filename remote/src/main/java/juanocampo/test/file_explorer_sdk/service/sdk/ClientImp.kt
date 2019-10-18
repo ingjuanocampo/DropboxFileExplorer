@@ -13,7 +13,7 @@ import juanocampo.test.file_explorer_sdk.service.PicassoClient
 import java.io.File
 import java.io.FileOutputStream
 
-class ClientImp(private val context: Context) : Client {
+internal class ClientImp(private val context: Context) : Client {
 
     override fun downLoadFile(id: String, name: String, rev: String): Pair<String, File>? {
 

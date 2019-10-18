@@ -6,7 +6,7 @@ import juanocampo.test.data.sources.FileRemoteDataSource
 import juanocampo.test.file_explorer_sdk.service.Client
 import java.io.File
 
-class FileRemoteDataSourceImpl(private val client: Client, private val mapper: Mapper) : FileRemoteDataSource {
+internal class FileRemoteDataSourceImpl(private val client: Client, private val mapper: Mapper) : FileRemoteDataSource {
 
     override fun downLoadFile(id: String, name: String, rev: String): Pair<String, File>? =
         client.downLoadFile(id, name, rev )

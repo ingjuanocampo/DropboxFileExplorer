@@ -7,7 +7,7 @@ import juanocampo.test.file_explorer_sdk.service.AuthSdk
 import juanocampo.test.file_explorer_sdk.service.DropboxClientFactory
 import juanocampo.test.file_explorer_sdk.service.PicassoClient
 
-class AuthSdkImp(private val context: Context): AuthSdk {
+internal class AuthSdkImp(private val context: Context): AuthSdk {
 
     override fun authenticate() {
         Auth.startOAuth2Authentication(context, context.getString(R.string.app_key))
