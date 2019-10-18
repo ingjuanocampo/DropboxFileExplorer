@@ -34,7 +34,9 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
-    implementation project(':data')
+    implementation(project(':data')) {
+        transitive = false
+    }
 
     implementation 'com.dropbox.core:dropbox-core-sdk:3.1.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
