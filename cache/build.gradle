@@ -7,7 +7,9 @@ dependencies {
     def daggerVersion = '2.24'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':data')
+    implementation(project(':data')) {
+        transitive = false
+    }
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 

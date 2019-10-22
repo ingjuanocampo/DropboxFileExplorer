@@ -1,7 +1,7 @@
 package juanocampo.test.presentation.entitiy
 
 import androidx.annotation.DrawableRes
-import juanocampo.test.domain.entity.entity.FileType
+import juanocampo.test.domain.entity.FileType
 
 data class FileViewType(@DrawableRes val type: Int,
                         val fileViewType: FileType,

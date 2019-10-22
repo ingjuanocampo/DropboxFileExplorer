@@ -2,9 +2,9 @@ package juanocampo.test.data.mapper
 
 import juanocampo.test.data.entity.FileBoxRepo
 import juanocampo.test.data.entity.UserRepo
-import juanocampo.test.domain.entity.entity.FileD
-import juanocampo.test.domain.entity.entity.FileIntent
-import juanocampo.test.domain.entity.entity.User
+import juanocampo.test.domain.entity.FileD
+import juanocampo.test.domain.entity.FileIntent
+import juanocampo.test.domain.entity.User
 import java.io.File
 
 interface RepositoryMapper {

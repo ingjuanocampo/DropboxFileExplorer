@@ -3,10 +3,10 @@ package juanocampo.test.presentation.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import juanocampo.test.domain.entity.usecase.DownLoadFileUseCase
-import juanocampo.test.domain.entity.usecase.LoadFileListUseCase
-import juanocampo.test.domain.entity.usecase.LoadUserInformationUseCase
-import juanocampo.test.domain.entity.usecase.LoginUseCase
+import juanocampo.test.domain.usecase.DownLoadFileUseCase
+import juanocampo.test.domain.usecase.LoadFileListUseCase
+import juanocampo.test.domain.usecase.LoadUserInformationUseCase
+import juanocampo.test.domain.usecase.LoginUseCase
 import juanocampo.test.presentation.model.FileExplorerModel
 import juanocampo.test.presentation.model.FileExplorerModelImpl
 import juanocampo.test.presentation.model.LoginModel

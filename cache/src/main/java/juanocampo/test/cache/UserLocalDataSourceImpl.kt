@@ -3,7 +3,7 @@ package juanocampo.test.cache
 import juanocampo.test.data.entity.UserRepo
 import juanocampo.test.data.sources.UserLocalDataSource
 
-class UserLocalDataSourceImpl: UserLocalDataSource {
+internal class UserLocalDataSourceImpl: UserLocalDataSource {
 
     private var userRepo: UserRepo? = null
 

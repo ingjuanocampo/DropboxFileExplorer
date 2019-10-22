@@ -11,6 +11,6 @@ class LocalModule {
 
     @Singleton
     @Provides
-    fun providesLocalDataSource(): UserLocalDataSource = UserLocalDataSourceImpl()
+    internal fun providesLocalDataSource(): UserLocalDataSource = UserLocalDataSourceImpl()
 
 }

@@ -3,10 +3,10 @@ package juanocampo.test.data
 import juanocampo.test.data.mapper.RepositoryMapper
 import juanocampo.test.data.sources.UserLocalDataSource
 import juanocampo.test.data.sources.UserRemoteDataSource
-import juanocampo.test.domain.entity.entity.User
-import juanocampo.test.domain.entity.repository.UserRepository
+import juanocampo.test.domain.entity.User
+import juanocampo.test.domain.repository.UserRepository
 
-class UserRepositoryImpl(private val localDataSource: UserLocalDataSource,
+internal class UserRepositoryImpl(private val localDataSource: UserLocalDataSource,
                          private val remoteDataSource: UserRemoteDataSource,
                          private val mapper: RepositoryMapper): UserRepository {
 

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import juanocampo.test.domain.entity.entity.Image
+import juanocampo.test.domain.entity.Image
 import juanocampo.test.dropboxexplorer.R
 import juanocampo.test.dropboxexplorer.delegate.DelegateAdapter
 import juanocampo.test.presentation.entitiy.FileViewType

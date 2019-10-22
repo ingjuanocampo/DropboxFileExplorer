@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-
 android {
     compileSdkVersion 28
 
@@ -28,21 +27,19 @@ android {
 
 dependencies {
 
-    implementation(project(':domain')) {
-        transitive = false
-    }
-
     def daggerVersion = '2.24'
-    def kotlinCoroutineVersion = '1.0.1'
-
-    //coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutineVersion"
 
     // Dagger 2
     implementation "com.google.dagger:dagger:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    implementation(project(':data')) {
+        transitive = false
+    }
+
+    implementation 'com.dropbox.core:dropbox-core-sdk:3.1.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

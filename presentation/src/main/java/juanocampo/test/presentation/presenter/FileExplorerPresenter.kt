@@ -1,8 +1,8 @@
 package juanocampo.test.presentation.presenter
 
 import android.content.Context
-import juanocampo.test.domain.entity.entity.Folder
-import juanocampo.test.domain.entity.status.*
+import juanocampo.test.domain.entity.Folder
+import juanocampo.test.domain.status.*
 import juanocampo.test.presentation.entitiy.FileViewType
 import juanocampo.test.presentation.model.FileExplorerModel
 import juanocampo.test.presentation.mapper.UIMapper
