@@ -1,13 +1,4 @@
 
-import org.gradle.kotlin.dsl.extra
-import org.gradle.kotlin.dsl.getValue
-import org.gradle.kotlin.dsl.setValue
-import org.gradle.kotlin.dsl.repositories
-
-plugins {
-    `kotlin-dsl`
-}
-
 buildscript {
     repositories {
         google()
