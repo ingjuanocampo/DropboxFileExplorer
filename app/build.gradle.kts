@@ -1,9 +1,4 @@
-import org.gradle.kotlin.dsl.extra
-import org.gradle.kotlin.dsl.getValue
 import org.gradle.kotlin.dsl.kotlin
-import org.gradle.kotlin.dsl.setValue
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
     id("com.android.application")
@@ -56,14 +51,16 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.71828")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50")
-    implementation ("androidx.appcompat:appcompat:1.0.2")
-    implementation ("androidx.core:core-ktx:1.0.2")
+    implementation ("androidx.appcompat:appcompat:1.1.0")
+    implementation ("androidx.core:core-ktx:1.1.0")
     implementation ("androidx.constraintlayout:constraintlayout:1.1.3")
     testImplementation("junit:junit:4.12")
     androidTestImplementation ("androidx.test:runner:1.1.1")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.1.1")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
 }
+
+configurations.all { isTransitive = false } // To keep clean architecture this configuration is required
 
 
 
