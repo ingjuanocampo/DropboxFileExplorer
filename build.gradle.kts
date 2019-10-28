@@ -13,6 +13,7 @@ buildscript {
     }
 }
 
+
 allprojects {
     repositories {
         google()
@@ -20,3 +21,5 @@ allprojects {
 
     }
 }
+
+configurations.all { isTransitive = false } // To keep clean architecture this configuration is required
