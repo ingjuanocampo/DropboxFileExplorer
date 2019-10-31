@@ -8,13 +8,12 @@ plugins {
 
 }
 
-
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(Config.Android.compileSdkVersion)
     defaultConfig {
         applicationId = "juanocampo.test.dropboxexplorer"
         minSdkVersion(21)
-        targetSdkVersion(29)
+        targetSdkVersion(Config.Android.compileSdkVersion)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -29,11 +28,7 @@ android {
 
 dependencies {
 
-    implementation(project(":domain"))
-    implementation(project(":data"))
-    implementation(project(":presentation"))
-    implementation(project(":cache"))
-    implementation(project(":remote"))
+    appProjects()
 
     val daggerVersion = "2.24"
     val kotlinCoroutineVersion = "1.0.1"
@@ -54,10 +49,11 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.0.2")
     implementation ("androidx.core:core-ktx:1.0.2")
     implementation ("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation("androidx.recyclerview:recyclerview:1.0.0")
+
     testImplementation("junit:junit:4.12")
     androidTestImplementation ("androidx.test:runner:1.1.1")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.1.1")
-    implementation("androidx.recyclerview:recyclerview:1.0.0")
 }
 
 
