@@ -28,7 +28,6 @@ android {
 }
 
 dependencies {
-    appProjects()
     appDependencies()
 }
 

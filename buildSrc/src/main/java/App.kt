@@ -6,7 +6,7 @@ import dependencies.daggerWithAndroid
 import dependencies.testAndroidDependencies
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
-fun DependencyHandler.appProjects() {
+private fun DependencyHandler.appProjects() {
     projectImplementation(":domain")
     projectImplementation(":data")
     projectImplementation(":presentation")
@@ -15,6 +15,7 @@ fun DependencyHandler.appProjects() {
 }
 
 fun DependencyHandler.appDependencies() {
+    appProjects()
     daggerWithAndroid()
     coroutinesWithAndroid()
     implementation(Dependencies.picasso)
