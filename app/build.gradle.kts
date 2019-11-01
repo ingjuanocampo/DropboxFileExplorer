@@ -1,4 +1,6 @@
 import org.gradle.kotlin.dsl.kotlin
+import dependencies.Android.compileAndroidSdkVersion
+import dependencies.Android.minAndroidSdkVersion
 
 plugins {
     id("com.android.application")
@@ -8,11 +10,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Config.Android.compileSdkVersion)
+    compileSdkVersion(compileAndroidSdkVersion)
     defaultConfig {
         applicationId = "juanocampo.test.dropboxexplorer"
-        minSdkVersion(21)
-        targetSdkVersion(Config.Android.compileSdkVersion)
+        minSdkVersion(minAndroidSdkVersion)
+        targetSdkVersion(compileAndroidSdkVersion)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
