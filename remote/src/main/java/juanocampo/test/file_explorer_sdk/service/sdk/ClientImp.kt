@@ -45,7 +45,7 @@ internal class ClientImp(private val context: Context) : Client {
         val ext = file.getName().substring(file.getName().indexOf(".") + 1)
         val type = mime.getMimeTypeFromExtension(ext)
 
-        return Pair(type,file)
+        return Pair(type!!,file)
     }
 
     override fun getListFolderResults(path: String): ListFolderResult? {
