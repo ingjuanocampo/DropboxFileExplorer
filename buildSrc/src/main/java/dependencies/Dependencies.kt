@@ -17,6 +17,7 @@ object Dependencies {
 
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     const val appCompat = "androidx.appcompat:appcompat:$androidXVersion"
+    const val androidCore = "androidx.core:core-ktx:$androidXVersion"
     const val constraitLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     const val recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewXVersion"
 }

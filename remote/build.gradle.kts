@@ -30,23 +30,5 @@ android {
 }
 
 dependencies {
-
-    val daggerVersion = "2.24"
-
-    // Dagger 2
-    implementation ("com.google.dagger:dagger:$daggerVersion")
-    annotationProcessor ("com.google.dagger:dagger-compiler:$daggerVersion")
-    kapt ("com.google.dagger:dagger-compiler:$daggerVersion")
-
-    implementation(project(":data"))
-
-    api ("com.dropbox.core:dropbox-core-sdk:3.1.1")
-    implementation ("com.squareup.picasso:picasso:2.71828")
-
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50")
-    implementation ("androidx.appcompat:appcompat:1.0.2")
-    implementation ("androidx.core:core-ktx:1.0.2")
-    testImplementation ("junit:junit:4.12")
-    androidTestImplementation ("androidx.test:runner:1.1.1")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.1.1")
+    remoteDependencies()
 }
